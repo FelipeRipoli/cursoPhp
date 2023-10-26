@@ -12,10 +12,15 @@
     </header>
     <main>
         <?php
-            $carteira = $_GET["moedas"];
-            $cota = 5.00;
+            $carteira = number_format($_GET["moedas"], 2,) ?? 0;
+            $cota = 4.99;
             $conversao = $carteira / $cota;
-            echo "Seus R$$carteira equivalem a <strong>US$$conversao</strong><br><br>";
+            echo "Seus R$" . $carteira ." equivalem a US$" . number_format($conversao, 2, ",", ".") . ".<br><br>";
+            //OU
+
+            $padrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
+            echo "Seus " . numfmt_format_currency($padrao, $carteira, "BRL") . " equivalem a " . numfmt_format_currency($padrao, $conversao, "USD") . ".<br><br>";
+
             echo "<strong>Cotação fixa é de R$$cota,</strong> informada diretamente no código.<br><br>";
         ?>
         <p><a href="javascript:history.go(-1)">Voltar</a></p>
