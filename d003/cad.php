@@ -12,7 +12,7 @@
     </header>
     <main>
         <?php
-            $carteira = number_format($_GET["moedas"], 2,) ?? 0;
+            $carteira = $_GET["moedas"] ?? 0;
             $cota = 4.99;
             $conversao = $carteira / $cota;
             echo "Seus R$" . $carteira ." equivalem a US$" . number_format($conversao, 2, ",", ".") . ".<br><br>";
