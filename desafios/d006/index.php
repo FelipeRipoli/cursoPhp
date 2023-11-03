@@ -25,10 +25,20 @@
     <section>
         <h2> Estrututra da Divisão </h2>
         <?php 
-            $conta = $valor1 / $valor2;
+            $conta = floor($valor1 / $valor2);
             $resto = $valor1 % $valor2;
-            echo "O <i>dividendo</i> é <strong>" . $valor1 . "</strong>, o <i>divisor</i> é <strong>" . $valor2 . "</strong>, o <i>resultado/ quociente</i> da divisão é <strong>" . number_format($conta, 0) . "</strong>, e o <i>resto</i> da divisão é <strong>" . $resto . "</strong>.";
+            /* echo "O <i>dividendo</i> é <strong>" . $valor1 . "</strong>, o <i>divisor</i> é <strong>" . $valor2 . "</strong>, o <i>resultado/ quociente</i> da divisão é <strong>" . number_format($conta, 0) . "</strong>, e o <i>resto</i> da divisão é <strong>" . $resto . "</strong>."; */
         ?>
+        <table class="divisao">
+            <tr>
+                <td><?=$valor1?></td>
+                <td><?=$valor2?></td>
+            </tr>
+            <tr>
+                <td><?=$resto?></td>
+                <td><?=$conta?></td>
+            </tr>
+        </table>
     </section>
 </body>
 </html>
