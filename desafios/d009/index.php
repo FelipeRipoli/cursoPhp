@@ -11,14 +11,14 @@
         <h1>Médias Aritméticas</h1>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         <label for="nota1">1° Valor</label>
-        <input type="number" name="nota1" id="nota1">
+        <input type="number" name="nota1" id="nota1" required>
         <label for="peso1">1° Peso</label>
-        <input type="number" name="peso1" id="peso1">
+        <input type="number" name="peso1" id="peso1" min="1" required>
 
         <label for="nota2">2° Valor</label>
-        <input type="number" name="nota2" id="nota2">
+        <input type="number" name="nota2" id="nota2" required>
         <label for="peso2">2° Peso</label>
-        <input type="number" name="peso2" id="peso2">
+        <input type="number" name="peso2" id="peso2" min="1" required>
 
         <input type="submit" value="Calcular Médias">
         </form>
@@ -38,7 +38,7 @@
             echo "Analisando os valores " . $nota1 . " e " . $nota2 . ":";
             echo "<ul>
                     <li>A <strong>Médita Aritmética Simples</strong> entre os valores é igual a " . number_format($medS, 2, ",") . ".</li>
-                    <li>A <strong>Médita Aritmética Ponderada</strong> com pesos " . $peso1 . " e " . $peso2 . " é igual a " . number_format($medP, 2, ",") . ".</li>    
+                    <li>A <strong>Médita Aritmética Ponderada</strong> com pesos <strong>" . $peso1 . "</strong> e <strong>" . $peso2 . "</strong> é igual a " . number_format($medP, 2, ",") . ".</li>    
                 </ul>";
         ?>
     </section>
