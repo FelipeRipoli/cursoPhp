@@ -7,14 +7,17 @@
     <title>Desafio PHP 010</title>
 </head>
 <body>
+    <?php 
+        $atual = date("Y");
+    ?>
     <main>
         <h1>Calculando sua Idade</h1>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="get">
             <label for="nasc">Em que ano você nasceu?</label>
-            <input type="number" name="nasc" id="nasc">
+            <input type="number" name="nasc" id="nasc" min="1900" max="<?=($atual-1)?>" value="<?=$nasc?>" placeholder="Por Exemplo: 1999">
 
-            <label for="fut">Quer saber sua idade em qual ano? (Estamos em <strong>2023</strong>)</label>
-            <input type="number" name="fut" id="fut">
+            <label for="fut">Quer saber sua idade em qual ano? (Estamos em <strong><?=$atual?></strong>)</label>
+            <input type="number" name="fut" id="fut" min="1900" placeholder="Por Exemplo: 2099">
 
             <input type="submit" value="Qual será minha idade?">
         </form>
@@ -22,11 +25,10 @@
     <section>
             <h2>Resultado</h2>
             <?php 
-                $nasc = $_GET['nasc'] ?? 0000;
-                $fut = $_GET['fut'] ?? 0000;
-                $anoatt = 2023;
+                $nasc = $_GET['nasc'] ?? '2000';
+                $fut = $_GET['fut'] ?? $atual;
 
-                $vctem = $anoatt - $nasc;
+                $vctem = $atual - $nasc;
                 $vctera = $fut - $nasc;
 
                 echo "Quem nasceu em " . $nasc . ", atualmente com  " . $vctem . " anos, em " . $fut , " <strong>terá " . $vctera . " anos.</strong>";
